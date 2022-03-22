@@ -4,7 +4,10 @@ from .models import Question,Choice
 
 
 class QuestionAdmin(admin.ModelAdmin):
-    fields = ['question_text']
+    fieldsets=[
+        ("Ask Question",  {'fields':['question_text']}),
+        ('Date', {'fields':['pub_date']}),
+    ]
 
 class ChoicesAdmin(admin.ModelAdmin):
     fields = ['question','choice_text','votes']
